@@ -62,12 +62,7 @@ gpio_led: gpio_led@0 {
 
 Linux Kernel, C, Device Tree, GPIO, IRQ, Makefile, Git
 
-------------------------------------------------------------------------
 
-## 📄 Resume Description
-
-Developed an Embedded Linux GPIO device driver using platform and
-character driver architecture with Device Tree and interrupt handling.
 
 ------------------------------------------------------------------------
 
