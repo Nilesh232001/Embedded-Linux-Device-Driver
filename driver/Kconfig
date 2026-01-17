@@ -1,0 +1,36 @@
+/* Kconfig - Kernel Configuration Option for GPIO Driver
+ * 
+ * This file allows the GPIO driver to be selected in kernel configuration
+ * Place this in your kernel source tree or use it as reference
+ */
+
+menuconfig GPIO_DEVICE_DRIVER
+    tristate "Custom GPIO Device Driver"
+    default m
+    help
+      Say M to compile this driver as a loadable kernel module, or Y for built-in.
+      
+      This driver provides a character device interface to GPIO pins through
+      a Platform Driver framework, with Device Tree support.
+      
+      The driver creates /dev/gpio_dev for user-space GPIO control.
+      
+      If in doubt, say N.
+
+if GPIO_DEVICE_DRIVER
+
+config GPIO_DEVICE_DRIVER_DEBUG
+    bool "Enable debugging output"
+    default n
+    help
+      Enable debug kernel logging for the GPIO driver.
+      This will produce verbose kernel messages during operation.
+
+config GPIO_DEVICE_DRIVER_IRQ
+    bool "Enable IRQ support"
+    default y
+    help
+      Enable interrupt handling for GPIO pins.
+      Allows detection of GPIO state changes via interrupts.
+
+endif
