@@ -1,0 +1,49 @@
+/*
+ * Device Tree Source for GPIO LED/Buzzer/Button Control
+ * Compatible with custom GPIO driver
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            
+            /* GPIO LED Device */
+            gpio_led: gpio_led@0 {
+                compatible = "custom,gpio-led";
+                gpio-number = <21>;
+                led-gpio = <&gpio 21 GPIO_ACTIVE_HIGH>;
+                interrupts = <21 IRQ_TYPE_EDGE_FALLING>;
+                status = "okay";
+            };
+            
+            /* GPIO Buzzer Device */
+            gpio_buzzer: gpio_buzzer@1 {
+                compatible = "custom,gpio-buzzer";
+                gpio-number = <26>;
+                buzzer-gpio = <&gpio 26 GPIO_ACTIVE_HIGH>;
+                status = "okay";
+            };
+            
+            /* GPIO Button Device */
+            gpio_button: gpio_button@2 {
+                compatible = "custom,gpio-button";
+                gpio-number = <27>;
+                button-gpio = <&gpio 27 GPIO_ACTIVE_LOW>;
+                interrupts = <27 IRQ_TYPE_EDGE_RISING>;
+                status = "okay";
+            };
+        };
+    };
+};
+
+/ {
+    __symbols__ {
+        gpio_led = "/fragment@0/__overlay__/gpio_led@0";
+        gpio_buzzer = "/fragment@0/__overlay__/gpio_buzzer@1";
+        gpio_button = "/fragment@0/__overlay__/gpio_button@2";
+    };
+};

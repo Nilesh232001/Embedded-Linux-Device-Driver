@@ -1,0 +1,55 @@
+# Build Artifacts
+*.o
+*.ko
+*.ko.cmd
+*.mod.c
+*.symvers
+*.order
+*.mod
+*.mod.o
+.tmp_versions/
+
+# Executables
+gpio_app
+*.elf
+*.out
+
+# Device Tree Compiled
+*.dtb
+*.dtbo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build directory
+build/
+dist/
+
+# Debugging
+tags
+cscope.*
+.gdbhistory
+
+# Kernel build
+Module.markers
+Module.symvers
+
+# OS specific
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+
+# Linux specific
+*.ko.unsigned
